@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 自动动态方法的调用，使用这个设置后可以这样调用：action!method -->  
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!-- 国际化资源文件名称 -->  
+    <constant name="struts.custom.i18n.resources" value="global" />
+    <!-- 编码格式 -->  
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    
+    <package name="default" namespace="/" extends="struts-default">
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <!-- <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> -->
+        
+        <action name="local" class="com.qhit.t6.action.LocalAction">
+        	<result name="success">/jsp/login.jsp</result>
+        </action>
+    </package>
+    
+    <package name="usermanager" namespace="/user" extends="default">
+    	<action name="*User" class="com.qhit.t6.action.UserAction" method="{1}">
+    		<result name="success">/jsp/welcome.jsp</result>
+    		<result name="input">/jsp/login.jsp</result>
+    	</action>
+    </package>
+</struts>
