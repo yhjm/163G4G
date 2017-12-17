@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<package name="userManager" extends="struts-default">
+	<interceptors>
+			<interceptor name="myinterceptor" class="com.qhit.lh.g4.jack.ts1.interceptor.CheckRightInterceptor"/>
+	</interceptors>
+		<action name="user" class="com.qhit.lh.g4.jack.ts1.action.UserAction">
+		<interceptor-ref name="myinterceptor"></interceptor-ref>
+		<interceptor-ref name="timer"></interceptor-ref>
+		<interceptor-ref name="params"></interceptor-ref>
+		<result name="success">/jsp/success.jsp</result>
+		</action>
+</package>
+</struts>
