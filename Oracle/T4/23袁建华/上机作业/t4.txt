@@ -1,0 +1,126 @@
+SQL> select initcap('hello') from dual;
+
+INITCAP('H                                                                      
+----------                                                                      
+Hello                                                                           
+
+SQL> select lower('HELLO') from dual;
+
+LOWER('HEL                                                                      
+----------                                                                      
+hello                                                                           
+
+SQL> 
+SQL> select upper('hello') from dual;
+
+UPPER('HEL                                                                      
+----------                                                                      
+HELLO                                                                           
+
+SQL> select length('hello') from dual;
+
+LENGTH('HELLO')                                                                 
+---------------                                                                 
+              5                                                                 
+
+SQL> select ltrim('  hello') from dual;
+
+LTRIM('HEL                                                                      
+----------                                                                      
+hello                                                                           
+
+SQL> select ltrim('hello  ') from dual;
+
+LTRIM('HELLO')                                                                  
+--------------                                                                  
+hello                                                                           
+
+SQL> select translate('jack','j','b') from dual;
+
+TRANSLAT                                                                        
+--------                                                                        
+back                                                                            
+
+SQL> select substr('oracle10g',7,3) from dual;
+
+SUBSTR                                                                          
+------                                                                          
+10g                                                                             
+
+SQL> select months_between(to_date('2010-10-21','yyyy-mm-dd'),sysdate) from dual;
+
+MONTHS_BETWEEN(TO_DATE('2010-10-21','YYYY-MM-DD'),SYSDATE)                      
+----------------------------------------------------------                      
+                                                -88.883968                      
+
+SQL> select add_months('sysdate',5) from dual;
+select add_months('sysdate',5) from dual
+                  *
+第 1 行出现错误: 
+ORA-01858: 在要求输入数字处找到非数字字符 
+
+
+SQL> select add_months('sysdate'，5) from dual;
+select add_months('sysdate'，5) from dual
+                  *
+第 1 行出现错误: 
+ORA-01858: 在要求输入数字处找到非数字字符 
+
+
+SQL> select add_months('sysdate',5) from dual;
+select add_months('sysdate',5) from dual
+                  *
+第 1 行出现错误: 
+ORA-01858: 在要求输入数字处找到非数字字符 
+
+
+SQL> select add_months(sysdate,5) from dual;
+
+ADD_MONTHS(SYS                                                                  
+--------------                                                                  
+17-8月 -18                                                                      
+
+SQL> select next_day(sysdate+12,5) from dual;
+
+NEXT_DAY(SYSDA                                                                  
+--------------                                                                  
+05-4月 -18                                                                      
+
+SQL> exit
+SQL>  create table dept(
+  2            did integer primary key,
+  3            dname varchar2(20),
+  4            manager integer,
+  5            tel varchar2(15),
+  6            master integer
+  7      );
+
+表已创建。
+
+SQL> 
+SQL> 
+SQL>  create table emp(
+  2           eid integer primary key,
+  3           ename varchar2(20),
+  4           sex varchar2(1),
+  5           hire date,
+  6           sar number(8,2),
+  7           did integer
+  8     );
+
+表已创建。
+
+SQL> 
+SQL> 
+SQL>  create table history(
+  2            hid integer primary key,
+  3            startdate date,
+  4            enddate date,
+  5            place varchar2(50),
+  6            job varchar2(20),
+  7            eid integer
+  8      );
+
+表已创建。
+
+SQL> exit
